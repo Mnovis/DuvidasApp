@@ -3,6 +3,7 @@ using DuvidasApp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.Json;
 
 namespace DuvidasApp.Services
 {
@@ -27,6 +28,14 @@ namespace DuvidasApp.Services
 
             Console.WriteLine("\nResposta:\n");
             Console.WriteLine(duvida.Resposta);
+
+            // Salvando os dados em um Arquivo de Texto
+            using (var streamWriter = new StreamWriter("c:\\temp\\duvidas.txt", true))
+            {
+                var json = JsonSerializer.Serialize(duvida, new JsonSerializerOptions { WriteIndented = true });
+
+                streamWriter.WriteLine(json + "\n");
+            }
         }
     }
 }

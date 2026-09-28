@@ -1,1 +1,6 @@
-﻿Console.WriteLine("Hello, World!");
+﻿using DuvidasApp.Services;
+
+var duvidaService = new DuvidaService();
+duvidaService.RealizarDuvida();
+
+Console.ReadKey();
